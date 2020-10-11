@@ -44,10 +44,10 @@ const App = () => {
         </ul>
         {/* 路由部分 */}
         <Switch>
-          <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/bar" component={Bar} />
           <Route exact path="/todo" component={TodoTask} />
+          <Route exact path="/" component={Home} />
         </Switch>
       </Router>
     </Provider>
