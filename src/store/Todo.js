@@ -13,6 +13,11 @@ class Todo {
     finished && (this.finished = finished)
   }
 
+  @computed
+  get statusText() {
+    return this.finished ? '已完成 done' : '未完成 todo'
+  }
+
   @action
   toggle() {
     this.finished = !this.finished

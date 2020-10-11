@@ -5,7 +5,7 @@ const Todo = inject('store')(
   observer((props) => {
     const { store } = props
     const { todo } = store
-    const { title, finished } = todo
+    const { title, finished, statusText } = todo
 
     const toggle = () => {
       todo.toggle()
@@ -14,7 +14,8 @@ const Todo = inject('store')(
     return (
       <div className="todo-wrapper">
         <div className="title">{title}</div>
-        <div className="finish-state">{finished ? 'complete' : 'undo'}</div>
+        {/* <div className="finish-state">{finished ? 'complete' : 'undo'}</div> */}
+        <div className="finish-state">{statusText}</div>
         <button type="button" onClick={toggle}>改变任务状态</button>
       </div>
     )
