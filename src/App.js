@@ -18,7 +18,7 @@ const App = () => {
     <Provider store={appState}>
       <Router>
         {/* 顶部固定内容 */}
-        <div>
+        {/* <div>
           <div>demo react app</div>
           <img
             src={onePieceImg}
@@ -29,9 +29,9 @@ const App = () => {
               objectFit: 'contain',
             }}
           />
-        </div>
+        </div> */}
         {/* 路由跳转控制 */}
-        <ul>
+        {/* <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -41,7 +41,7 @@ const App = () => {
           <li>
             <Link to="/todo">TodoTask</Link>
           </li>
-        </ul>
+        </ul> */}
         {/* 路由部分 */}
         <Switch>
           <Route exact path="/home" component={Home} />
