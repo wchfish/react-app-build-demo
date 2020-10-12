@@ -34,6 +34,12 @@ class TodoList {
       return item.id !== id
     })
   }
+
+  // 清空
+  @action
+  clear() {
+    this.todos = []
+  }
 }
 
 export default TodoList

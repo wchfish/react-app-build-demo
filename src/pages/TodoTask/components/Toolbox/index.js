@@ -18,9 +18,14 @@ const Toolbox = inject('store')(
       });
     }
 
+    const clear = () => {
+      todoList.clear() 
+    }
+
     return (
       <div className="toolbox">
         <button type="button" onClick={remove}>删除</button>
+        <button type="button" onClick={clear}>清空</button>
       </div>
     )
   }
