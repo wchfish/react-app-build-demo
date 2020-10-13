@@ -1,4 +1,5 @@
 import React from 'react'
+import TodoBuilder from './components/TodoBuilder'
 import Toolbox from './components/Toolbox'
 import TodoList from './components/TodoList'
 
@@ -7,8 +8,9 @@ const TodoTask = (props) => {
     <div className="todo-task-page">
       <h2>代办任务</h2>
       {/* <Todo todo={appState.todo} /> */}
-      <Toolbox />
+      <TodoBuilder />
       <TodoList />
+      <Toolbox />
     </div>
   )
 }

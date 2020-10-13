@@ -1,8 +1,24 @@
 .todo-wrapper {
+  margin-top: 10px;
+  border: 1px solid #ff9645;
   color: #333;
 
   &-selected {
     background: #00a0e9;
     color: #fff;
+  }
+
+  .status {
+    color: #ff9645;
+  }
+
+  .btn-group {
+    .status-btn {
+
+    }
+    .status-btn-active {
+      background: #ff9645;
+      color: #fff;
+    }
   }
 }

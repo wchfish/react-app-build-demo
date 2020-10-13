@@ -44,7 +44,7 @@ class Todo {
 
   @action
   setStatus(status) {
-    this.finished = status
+    this.status = status
   }
 
   @action
@@ -54,3 +54,7 @@ class Todo {
 }
 
 export default Todo
+export {
+  Todo,
+  TODO_STATUS,
+}

@@ -1,6 +1,8 @@
 import React from 'react'
 import { inject } from 'mobx-react'
 
+import './index.scss'
+
 const Toolbox = inject('store')(
   (props) => {
     const { store } = props
@@ -23,7 +25,7 @@ const Toolbox = inject('store')(
     }
 
     return (
-      <div className="toolbox">
+      <div className="todo-toolbox">
         <button type="button" onClick={remove}>删除</button>
         <button type="button" onClick={clear}>清空</button>
       </div>
