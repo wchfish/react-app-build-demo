@@ -8,11 +8,11 @@ const Toolbox = inject('store')(
     (props) => {
       const { store } = props
       const { todoList } = store
-      const { todos, isSelectAll } = todoList
+      const { visibleTodos, isSelectAll } = todoList
   
       // 删除
       const remove = () => {
-        const deleteTodos = todos.filter(todo => {
+        const deleteTodos = visibleTodos.filter(todo => {
           const { isSelect } = todo
           return isSelect
         })
@@ -24,12 +24,12 @@ const Toolbox = inject('store')(
   
       // 清空
       const clear = () => {
-        todoList.clear() 
+        todoList.clearVisible()
       }
   
       // 全选
       const toggleSelectAll = () => {
-        todoList.selectAll(!isSelectAll)
+        todoList.selectAllVisible(!isSelectAll)
       }
   
       return (

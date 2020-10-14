@@ -1,0 +1,10 @@
+.visible-filter-bar {
+  margin-top: 20px;
+
+  .btn {
+    &-active {
+      background: #ff9645;
+      color: #fff;
+    }
+  }
+}

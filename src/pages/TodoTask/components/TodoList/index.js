@@ -8,12 +8,12 @@ const TodoList = inject('store')(
   observer((props) => {
     const { store } = props
     const { todoList } = store
-    const { todos } = todoList
+    const { visibleTodos } = todoList
 
     return (
       <div className="todo-list-container">
         {
-          todos.map((item, index) => {
+          visibleTodos.map((item, index) => {
             return (
               <TodoItem
                 key={item.id}
