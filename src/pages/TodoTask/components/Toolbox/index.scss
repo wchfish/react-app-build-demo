@@ -1,3 +1,14 @@
 .todo-toolbox {
   margin-top: 20px;
+  display: flex;
+
+  .btn {
+    &-right {
+      margin-left: auto;
+    }
+    &-active {
+      background: #ff9645;
+      color: #fff;
+    }
+  }
 }

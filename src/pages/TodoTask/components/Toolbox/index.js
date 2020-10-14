@@ -1,36 +1,46 @@
 import React from 'react'
-import { inject } from 'mobx-react'
+import { inject, observer } from 'mobx-react'
 
 import './index.scss'
 
 const Toolbox = inject('store')(
-  (props) => {
-    const { store } = props
-    const { todoList } = store
-    const { todos } = todoList
-
-    const remove = () => {
-      const deleteTodos = todos.filter(todo => {
-        const { isSelect } = todo
-        return isSelect
-      })
-      deleteTodos.forEach(todo => {
-        const { id } = todo
-        todoList.removeItemById(id)
-      });
+  observer(
+    (props) => {
+      const { store } = props
+      const { todoList } = store
+      const { todos, isSelectAll } = todoList
+  
+      // 删除
+      const remove = () => {
+        const deleteTodos = todos.filter(todo => {
+          const { isSelect } = todo
+          return isSelect
+        })
+        deleteTodos.forEach(todo => {
+          const { id } = todo
+          todoList.removeItemById(id)
+        });
+      }
+  
+      // 清空
+      const clear = () => {
+        todoList.clear() 
+      }
+  
+      // 全选
+      const toggleSelectAll = () => {
+        todoList.selectAll(!isSelectAll)
+      }
+  
+      return (
+        <div className="todo-toolbox">
+          <button className={isSelectAll ? 'btn btn-active' : 'btn'} type="button" onClick={toggleSelectAll}>全选</button>
+          <button className="btn btn-right" type="button" onClick={remove}>删除</button>
+          <button className="btn" type="button" onClick={clear}>清空</button>
+        </div>
+      )
     }
-
-    const clear = () => {
-      todoList.clear() 
-    }
-
-    return (
-      <div className="todo-toolbox">
-        <button type="button" onClick={remove}>删除</button>
-        <button type="button" onClick={clear}>清空</button>
-      </div>
-    )
-  }
+  )
 )
 
 export default Toolbox

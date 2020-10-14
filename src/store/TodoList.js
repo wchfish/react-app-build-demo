@@ -1,4 +1,4 @@
-import { makeObservable, observable, action } from 'mobx'
+import { makeObservable, observable, action, computed } from 'mobx'
 import Todo from './Todo'
 
 class TodoList {
@@ -10,6 +10,18 @@ class TodoList {
     const { todos } = options
     if (todos && todos.length > 0) {
       this.todos = todos
+    }
+  }
+
+  // 是否全部选中
+  @computed
+  get isSelectAll() {
+    if (this.todos && this.todos.length > 0) {
+      return this.todos.every((todo) => {
+        return todo.isSelect
+      })
+    } else {
+      return false
     }
   }
 
@@ -39,6 +51,14 @@ class TodoList {
   @action
   clear() {
     this.todos = []
+  }
+
+  // 设置所有待办项的选中状态
+  @action
+  selectAll(isSelect) {
+    this.todos.forEach(todo => {
+      todo.isSelect = isSelect
+    })
   }
 }
 
