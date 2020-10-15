@@ -19,14 +19,14 @@ const VisibleFilterBar = inject('store')(
         <div className="visible-filter-bar">
           {
             Object.keys(VISIBLE_STATUS).map((key, index) => {
-              const status = VISIBLE_STATUS[key]
+              const status = VISIBLE_STATUS[key].status
               return (
                 <button
                   type="button"
                   className={status === visibleStatus ? 'btn btn-active' : 'btn'}
                   onClick={() => { selectVisibleFilter(status) }}
                 >
-                  {key}
+                  {VISIBLE_STATUS[key].desc}
                 </button>
               )
             })

@@ -3,13 +3,16 @@ import Todo, { TODO_STATUS } from './Todo'
 
 const VISIBLE_STATUS = {
   ...TODO_STATUS,
-  all: 'all',
+  all: {
+    status: 'all',
+    desc: '全部',
+  },
 }
 
 class TodoList {
   // todo任务列表
   @observable todos = []
-  @observable visibleStatus = VISIBLE_STATUS.all
+  @observable visibleStatus = VISIBLE_STATUS.all.status
   
   constructor(options) {
     makeObservable(this)
@@ -21,30 +24,13 @@ class TodoList {
 
   @computed
   get visibleStatusText() {
-    let text = ''
-    switch (this.status) {
-      case TODO_STATUS.todo:
-        text = '代办'
-        break
-      case TODO_STATUS.doing:
-        text = '进行中'
-        break
-      case TODO_STATUS.complete:
-        text = '完成'
-        break
-      case VISIBLE_STATUS.all:
-        text = '全部'
-        break
-      default:
-        break
-    }
-    return text
+    return VISIBLE_STATUS[this.visibleStatus].desc
   }
 
   @computed
   get visibleTodos() {
     if (this.todos && this.todos.length > 0) {
-      if (this.visibleStatus === VISIBLE_STATUS.all) {
+      if (this.visibleStatus === VISIBLE_STATUS.all.status) {
         return this.todos
       } else {
         return this.todos.filter(todo => {
@@ -93,7 +79,7 @@ class TodoList {
   // 清空当前可见的代办
   @action
   clearVisible() {
-    if (this.visibleStatus === VISIBLE_STATUS.all) {
+    if (this.visibleStatus === VISIBLE_STATUS.all.status) {
       this.todos = []
     } else {
       this.todos = this.todos.filter(todo => todo.status !== this.visibleStatus)
