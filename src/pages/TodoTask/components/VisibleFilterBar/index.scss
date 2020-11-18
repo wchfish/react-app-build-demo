@@ -1,5 +1,9 @@
+@import '../../../../styles/common.scss';
+
 .visible-filter-bar {
   margin-top: 20px;
+
+  @include flexbox-row-space(1);
 
   .btn {
     &-active {

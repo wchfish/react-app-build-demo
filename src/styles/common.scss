@@ -1,0 +1,42 @@
+/* 单一维度布局 */
+.column-align-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row-justify-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.row-align-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex {
+  flex: 1;
+}
+
+@mixin flexbox(
+  $direction: row
+) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin flexbox-row-space($n) {
+  @include flexbox(row);
+  &:nth-child($n) {
+    margin-right: auto;
+  }
+}
